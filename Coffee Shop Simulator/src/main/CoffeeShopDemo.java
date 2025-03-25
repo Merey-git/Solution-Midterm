@@ -17,38 +17,41 @@ public class CoffeeShopDemo {
         CoffeeFactory factory = new CoffeeFactory();
 
         System.out.println("----- Coffee Shop Simulator -----");
-        System.out.print("Choose coffee type (espresso/cappuccino/latte/mocha/americano): ");
+        System.out.print("What would you like? (espresso / cappuccino / latte / mocha / americano): ");
         String type = scanner.nextLine();
 
-        Coffee coffee = factory.createCoffee(type);
-
-        System.out.print("Add milk? (yes/no): ");
+        Coffee coffee = factory.createCoffee(type); 
+ 
+        System.out.println("\nGreat choice! Now let’s customize your coffee:");
+        
+        System.out.print("Would you like to add some creamy milk? (yes/no): ");
         if (scanner.nextLine().equalsIgnoreCase("yes")) {
             coffee = new MilkDecorator(coffee);
         }
 
-        System.out.print("Add chocolate syrup? (yes/no): ");
+        System.out.print("Fancy some rich chocolate syrup? (yes/no): ");
         if (scanner.nextLine().equalsIgnoreCase("yes")) {
             coffee = new ChocolateDecorator(coffee);
         }
 
-        System.out.print("Add whipped cream? (yes/no): ");
+        System.out.print("How about fluffy whipped cream on top? (yes/no): ");
         if (scanner.nextLine().equalsIgnoreCase("yes")) {
             coffee = new WhippedCreamDecorator(coffee);
         }
 
-        System.out.print("Add vanilla syrup? (yes/no): ");
+        System.out.print("Add a hint of vanilla sweetness? (yes/no): ");
         if (scanner.nextLine().equalsIgnoreCase("yes")) {
             coffee = new VanillaDecorator(coffee);
         }
 
-        System.out.print("Add cinnamon? (yes/no): ");
+        System.out.print("Would you like a sprinkle of cinnamon? (yes/no): ");
         if (scanner.nextLine().equalsIgnoreCase("yes")) {
             coffee = new CinnamonDecorator(coffee);
         }
 
-        System.out.println("\nYour order:");
+        System.out.println("\nYour customized coffee order:");
         System.out.println("Description: " + coffee.getDescription() + ".");
         System.out.printf("Total cost: $%.2f\n", coffee.getCost());
+        System.out.println("☀️ Enjoy your coffee and have a wonderful day!");
     }
 }
